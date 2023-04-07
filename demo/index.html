@@ -1,133 +1,134 @@
-<!doctype html>
+<!DOCTYPE html>
 
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <title>vue-datetime demo</title>
-  <meta name="description" content="vue-datetime demo docs">
-  <meta name="author" content="Mario Juárez">
-  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/atom-one-light.min.css">
-</head>
+    <title>vue-datetime demo</title>
+    <meta name="description" content="vue-datetime demo docs" />
+    <meta name="author" content="Mario Juárez" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/styles/atom-one-light.min.css"
+    />
+  </head>
 
-<body>
-<div id="app" class="page">
-  <h1><a href="https://github.com/mariomka/vue-datetime">vue-datetime demo</a></h1>
+  <body>
+    <div id="app" class="page">
+      <h1>
+        <a href="https://github.com/mariomka/vue-datetime">vue-datetime demo</a>
+      </h1>
 
-  <h2>Date</h2>
+      <h2>Date</h2>
 
-  <div class="example">
-    <div class="example-inputs">
-      <datetime v-model="date"></datetime>
-
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ date }}
-        </p>
-      </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime v-model=&#x22;date&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
-    </div>
-  </div>
-
-  <h2>Datetime</h2>
-
-  <div class="example">
-    <div class="example-inputs">
-      <datetime type="datetime" v-model="datetime"></datetime>
-
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ datetime }}
-        </p>
-      </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetime&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
-    </div>
-  </div>
-
-  <h2>12h datetime</h2>
-
-  <div class="example">
-    <div class="example-inputs">
-      <datetime type="datetime" v-model="datetime12" use12-hour></datetime>
-
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ datetime12 }}
-        </p>
-      </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetime12&#x22; use12-hour&#x3E;&#x3C;/datetime&#x3E;</code></pre>
-    </div>
-  </div>
-
-  <h2>Time</h2>
-  <div class="example">
-    <div class="example-inputs">
-      <datetime type="time" v-model="time"></datetime>
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ time }}
-        </p>
-      </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime type=&#x22;time&#x22; v-model=&#x22;time&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
-    </div>
-  </div>
-
-  <h2>Macro tokens</h2>
-  <div class="example">
-      <div class="example-inputs">
-          <datetime type="datetime" v-model="datetime13" format="yyyy-MM-dd HH:mm:ss"></datetime>
+      <div class="example">
+        <div class="example-inputs">
+          TEST {{date}}
+          <datetime
+            v-model="date"
+            :display-function="dateDisplayFunction"
+          ></datetime>
 
           <div class="values">
-              <p>
-                  <strong>Value:</strong> {{ datetime13 }}
-              </p>
+            <p><strong>Value:</strong> {{ date }}</p>
           </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime v-model=&#x22;date&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+        </div>
       </div>
-      <div class="example-code">
+
+      <h2>Datetime</h2>
+
+      <div class="example">
+        <div class="example-inputs">
+          <datetime type="datetime" v-model="datetime"></datetime>
+
+          <div class="values">
+            <p><strong>Value:</strong> {{ datetime }}</p>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetime&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+        </div>
+      </div>
+
+      <h2>12h datetime</h2>
+
+      <div class="example">
+        <div class="example-inputs">
+          <datetime type="datetime" v-model="datetime12" use12-hour></datetime>
+
+          <div class="values">
+            <p><strong>Value:</strong> {{ datetime12 }}</p>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetime12&#x22; use12-hour&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+        </div>
+      </div>
+
+      <h2>Time</h2>
+      <div class="example">
+        <div class="example-inputs">
+          <datetime type="time" v-model="time"></datetime>
+          <div class="values">
+            <p><strong>Value:</strong> {{ time }}</p>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime type=&#x22;time&#x22; v-model=&#x22;time&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+        </div>
+      </div>
+
+      <h2>Macro tokens</h2>
+      <div class="example">
+        <div class="example-inputs">
+          <datetime
+            type="datetime"
+            v-model="datetime13"
+            format="yyyy-MM-dd HH:mm:ss"
+          ></datetime>
+
+          <div class="values">
+            <p><strong>Value:</strong> {{ datetime13 }}</p>
+          </div>
+        </div>
+        <div class="example-code">
           <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetime13&#x22; format=&#x22;yyyy-MM-dd HH:mm:ss&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+        </div>
       </div>
-  </div>
 
-  <h2>Complete demo</h2>
+      <h2>Complete demo</h2>
 
-  <div class="example">
-    <div class="example-inputs">
-      <datetime
-          type="datetime"
-          v-model="datetimeEmpty"
-          placeholder="Select date"
-          class="my-wrapper-class"
-          input-class="my-input-class"
-          value-zone="America/New_York"
-          zone="Asia/Shanghai"
-          :format="{ year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }"
-          :phrases="{ok: 'Continue', cancel: 'Exit'}"
-          :hour-step="2"
-          :minute-step="15"
-          :min-datetime="minDatetime"
-          :max-datetime="maxDatetime"
-          :week-start="7"
-          use12-hour
-          auto
-      ></datetime>
+      <div class="example">
+        <div class="example-inputs">
+          <datetime
+            type="datetime"
+            v-model="datetimeEmpty"
+            placeholder="Select date"
+            class="my-wrapper-class"
+            input-class="my-input-class"
+            value-zone="America/New_York"
+            zone="Asia/Shanghai"
+            :format="{ year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: '2-digit', timeZoneName: 'short' }"
+            :phrases="{ok: 'Continue', cancel: 'Exit'}"
+            :hour-step="2"
+            :minute-step="15"
+            :min-datetime="minDatetime"
+            :max-datetime="maxDatetime"
+            :week-start="7"
+            use12-hour
+            auto
+          ></datetime>
 
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ datetimeEmpty }}
-        </p>
-      </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime
+          <div class="values">
+            <p><strong>Value:</strong> {{ datetimeEmpty }}</p>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime
   type=&#x22;datetime&#x22;
   v-model=&#x22;datetimeEmpty&#x22;
   input-class=&#x22;my-class&#x22;
@@ -143,25 +144,27 @@
   use12-hour
   auto
   &#x3E;&#x3C;/datetime&#x3E;</code></pre>
-    </div>
-  </div>
-
-  <h2>Theming</h2>
-
-  <div class="example">
-    <div class="example-inputs">
-      <datetime type="datetime" v-model="datetimeTheming" class="theme-orange"></datetime>
-
-      <div class="values">
-        <p>
-          <strong>Value:</strong> {{ datetimeTheming }}
-        </p>
+        </div>
       </div>
-    </div>
-    <div class="example-code">
-      <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetimeTheming&#x22; class=&#x22;theme-orange&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
 
-      <pre><code>.theme-orange .vdatetime-popup__header,
+      <h2>Theming</h2>
+
+      <div class="example">
+        <div class="example-inputs">
+          <datetime
+            type="datetime"
+            v-model="datetimeTheming"
+            class="theme-orange"
+          ></datetime>
+
+          <div class="values">
+            <p><strong>Value:</strong> {{ datetimeTheming }}</p>
+          </div>
+        </div>
+        <div class="example-code">
+          <pre><code>&#x3C;datetime type=&#x22;datetime&#x22; v-model=&#x22;datetimeTheming&#x22; class=&#x22;theme-orange&#x22;&#x3E;&#x3C;/datetime&#x3E;</code></pre>
+
+          <pre><code>.theme-orange .vdatetime-popup__header,
 .theme-orange .vdatetime-calendar__month__day--selected > span > span,
 .theme-orange .vdatetime-calendar__month__day--selected:hover > span > span {
   background: #FF9800;
@@ -172,17 +175,19 @@
 .theme-orange .vdatetime-popup__actions__button {
   color: #ff9800;
 }</code></pre>
+        </div>
+      </div>
+
+      <footer>
+        © <a href="https://github.com/mariomka">Mario Juárez</a> -
+        <a href="https://github.com/mariomka/vue-datetime">Code on Github</a>
+      </footer>
     </div>
-  </div>
 
-  <footer>
-    © <a href="https://github.com/mariomka">Mario Juárez</a> -
-    <a href="https://github.com/mariomka/vue-datetime">Code on Github</a>
-  </footer>
-</div>
-
-<script src="dist/app.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
-<script>hljs.initHighlightingOnLoad()</script>
-</body>
+    <script src="dist/app.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.11.0/highlight.min.js"></script>
+    <script>
+      hljs.initHighlightingOnLoad()
+    </script>
+  </body>
 </html>

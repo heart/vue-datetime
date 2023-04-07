@@ -4,9 +4,10 @@ module.exports = {
   parserOptions: {
     sourceType: 'module'
   },
+  'space-before-function-paren': 'never',
   extends: 'vue',
   // add your custom rules here
-  'rules': {
+  rules: {
     // allow async-await
     'generator-star-spacing': 0,
     // allow debugger during development

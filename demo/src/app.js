@@ -8,7 +8,13 @@ Vue.use(Datetime)
 
 new Vue({
   el: '#app',
-
+  methods: {
+    dateDisplayFunction (date) {
+      console.log('custom', typeof date)
+      // let d = new Date(date)
+      return `${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`
+    }
+  },
   data () {
     return {
       time: '19:06',
@@ -23,4 +29,3 @@ new Vue({
     }
   }
 })
-
