@@ -1,6 +1,6 @@
 {
   "name": "heart-vue-datetime",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Mobile friendly datetime picker for Vue. Supports date, datetime and time modes, i18n and disabling dates.",
   "keywords": [
     "datetime",
@@ -10,11 +10,11 @@
     "vue"
   ],
   "author": "Mario Juárez <mario@mjp.one>",
-  "main": "dist/vue-datetime.common.js",
-  "module": "dist/vue-datetime.esm.js",
-  "browser": "dist/vue-datetime.js",
-  "unpkg": "dist/vue-datetime.js",
-  "style": "dist/vue-datetime.css",
+  "main": "dist/heart-vue-datetime.common.js",
+  "module": "dist/heart-vue-datetime.esm.js",
+  "browser": "dist/heart-vue-datetime.js",
+  "unpkg": "dist/heart-vue-datetime.js",
+  "style": "dist/heart-vue-datetime.css",
   "files": [
     "dist",
     "src"
@@ -142,12 +142,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mariomka/vue-datetime.git"
+    "url": "git+https://github.com/heart/vue-datetime"
   },
   "bugs": {
-    "url": "https://github.com/mariomka/vue-datetime/issues"
+    "url": "https://github.com/heart/vue-datetime/issues"
   },
-  "homepage": "https://github.com/mariomka/vue-datetime#readme",
+  "homepage": "https://github.com/heart/vue-datetime#readme",
   "license": {
     "type": "MIT",
     "url": "http://www.opensource.org/licenses/mit-license.php"

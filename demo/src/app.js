@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import { DateTime as LuxonDateTime } from 'luxon'
-import Datetime from '../../dist/vue-datetime'
-import '../../dist/vue-datetime.css'
+import Datetime from '../../dist/heart-vue-datetime'
+import '../../dist/heart-vue-datetime.css'
 import './app.css'
 
 Vue.use(Datetime)
@@ -9,13 +9,13 @@ Vue.use(Datetime)
 new Vue({
   el: '#app',
   methods: {
-    dateDisplayFunction (date) {
+    dateDisplayFunction(date) {
       console.log('custom', typeof date)
       // let d = new Date(date)
       return `${date.getDate()} - ${date.getMonth()} - ${date.getFullYear()}`
     }
   },
-  data () {
+  data() {
     return {
       time: '19:06',
       date: '2018-05-12T00:00:00.000Z',
