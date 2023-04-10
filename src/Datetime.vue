@@ -114,7 +114,7 @@ export default {
     },
     phrases: {
       type: Object,
-      default () {
+      default() {
         return {
           cancel: 'Cancel',
           ok: 'Ok'
@@ -147,7 +147,7 @@ export default {
     },
     weekStart: {
       type: Number,
-      default () {
+      default() {
         return weekStart()
       }
     },
@@ -167,7 +167,7 @@ export default {
     }
   },
 
-  data () {
+  data() {
     return {
       isOpen: false,
       datetime: datetimeFromISO(this.value)
@@ -175,17 +175,17 @@ export default {
   },
 
   watch: {
-    value (newValue) {
+    value(newValue) {
       this.datetime = datetimeFromISO(newValue)
     }
   },
 
-  created () {
+  created() {
     this.emitInput()
   },
 
   computed: {
-    inputValue () {
+    inputValue() {
       let format = this.format
 
       if (!format) {
@@ -213,17 +213,17 @@ export default {
           : ''
       }
     },
-    popupDate () {
+    popupDate() {
       return this.datetime
         ? this.datetime.setZone(this.zone)
         : this.newPopupDatetime()
     },
-    popupMinDatetime () {
+    popupMinDatetime() {
       return this.minDatetime
         ? DateTime.fromISO(this.minDatetime).setZone(this.zone)
         : null
     },
-    popupMaxDatetime () {
+    popupMaxDatetime() {
       return this.maxDatetime
         ? DateTime.fromISO(this.maxDatetime).setZone(this.zone)
         : null
@@ -231,13 +231,16 @@ export default {
   },
 
   methods: {
-    transformBeforeDisplay (date) {
+    transformBeforeDisplay(date) {
+      if (!date) {
+        return ''
+      }
       if (this.displayFunction) {
         return this.displayFunction(date.toJSDate())
       }
       return this.inputValue
     },
-    emitInput () {
+    emitInput() {
       let datetime = this.datetime
         ? this.datetime.setZone(this.valueZone)
         : null
@@ -248,29 +251,29 @@ export default {
 
       this.$emit('input', datetime ? datetime.toISO() : '')
     },
-    open (event) {
+    open(event) {
       event.target.blur()
 
       this.isOpen = true
     },
-    close () {
+    close() {
       this.isOpen = false
       this.$emit('close')
     },
-    confirm (datetime) {
+    confirm(datetime) {
       this.datetime = datetime.toUTC()
       this.emitInput()
       this.close()
     },
-    cancel () {
+    cancel() {
       this.close()
     },
-    clickOutside () {
+    clickOutside() {
       if (this.backdropClick === true) {
         this.cancel()
       }
     },
-    newPopupDatetime () {
+    newPopupDatetime() {
       let datetime = DateTime.utc()
         .setZone(this.zone)
         .set({ seconds: 0, milliseconds: 0 })
@@ -296,7 +299,7 @@ export default {
 
       return datetime.set({ minute: roundedMinute })
     },
-    setValue (event) {
+    setValue(event) {
       this.datetime = datetimeFromISO(event.target.value)
       this.emitInput()
     }
